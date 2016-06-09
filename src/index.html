@@ -22,6 +22,18 @@
         <!-- Add your site or application content here -->
         <h1>JS Regex Example</h1>
 
+        <script>
+            function parseDollar()
+            {
+                var doc = document.getElementById("gotMoney");
+                var contents = doc.innerHTML;
+                var patt = new RegExp('\\b\\d+\\.\\d{2}\\b');
+                var dollar = patt.exec(contents);
+                var box = document.getElementById("putMoney");
+                box.value = dollar;
+            }
+        </script>
+
         <div id="gotMoney">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
@@ -32,7 +44,7 @@
             culpa qui officia deserunt mollit anim id est laborum.
         </div>
 
-        <a href="#" onclick="return false;">Click here to transcribe dollar amount.</a>
+        <a href="#" onclick="parseDollar();">Click here to transcribe dollar amount.</a>
         <input type="text" value="n/a" id="putMoney">
         <!-- /Add your site or application content here -->
 
