@@ -25,11 +25,27 @@
         <script>
             function parseDollar()
             {
+                // grab the document from the DOM
                 var doc = document.getElementById("gotMoney");
+
+                // extract contents from the document object
                 var contents = doc.innerHTML;
+
+                // compile a regex for pattern matching dollar-figures:
+                //   a word boundary (\b), followed by ...
+                //   at least one digit (\d), followed by ...
+                //   a literal '.', followed by ...
+                //   exactly two digits (\d), followed by ...
+                //   a word boundary
                 var patt = new RegExp('\\b\\d+\\.\\d{2}\\b');
+
+                // find the first matching of this regex in contents
                 var dollar = patt.exec(contents);
+
+                // grab the input field from the DOM
                 var box = document.getElementById("putMoney");
+
+                // update input field's value with the acquired dollar amount
                 box.value = dollar;
             }
         </script>
